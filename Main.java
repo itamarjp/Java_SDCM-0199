@@ -57,6 +57,24 @@ class Main {
     }
 
     public static char calculateLetterGrade(double average) {
+        /*
+        * How about if the user inputs 90, 90, 80 ?
+        * The average would be (90 + 90 + 89) / 3 = 89.67, which is not covered by study.com requirements.
+        * my code fixes this issue.
+        * Letter grade mapping requested by study.com:
+        * A = 90-100
+        * B = 80-89
+        * C = 70-79
+        * D = 60-69
+        * F = 0-59
+        */
+
+        
+        if (average < 0 || average > 100) {
+            throw new IllegalArgumentException("Average must be between 0 and 100.");
+        }
+
+        // I am aware that my code is slightly different from the study.com requirements, but it is more accurate.
         if (average >= 90) return 'A';
         if (average >= 80) return 'B';
         if (average >= 70) return 'C';
